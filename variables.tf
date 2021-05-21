@@ -42,11 +42,6 @@ variable "secret_name" {
   type        = string
 }
 
-variable "tags" {
-  description = "Tags to apply to created resources."
-  type        = map(string)
-}
-
 # ------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # ------------------------------------------------------------------------------
@@ -73,4 +68,10 @@ variable "rotation_interval" {
   default     = 30
   description = "The number of days between automatic scheduled rotations of the secret."
   type        = number
+}
+
+variable "tags" {
+  default     = {}
+  description = "Tags to apply to created resources."
+  type        = map(string)
 }

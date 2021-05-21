@@ -30,6 +30,7 @@ instead of implementing your own rotator function.
 | rotation_lambda_arn | ARN to the rotation Lambda function.         | `string` |       | yes      |
 | secret_description  | Description of the Secrets Manager secret that will store the DB credentials. | `string` | | yes |
 | secret_name         | Name to use for the Secrets Manager secret that will store the DB credentials. | `string` | | yes |
+| tags                | Tags to apply to created resources. | `map(string)` | `{}` | no |
 
 ## Outputs
 
@@ -47,7 +48,7 @@ this module, without needing to encrypt this value, as it will be an invalid
 password after Terraform creates all of the resources.
 
 Consequently, though, in order to avoid Terraform from overwriting this secret
-with the initial password value, _the secret value will not be updated in subsequent Terragrunt apply calls_,
+with the initial password value, _the secret value will not be updated in subsequent Terraform apply calls_,
 even if you update any of the `db_*` inputs. To make any changes to the secret
 value afterwards, such as changing the DB username, you will have to make these
 changes manually via the AWS Console or the CLI.
